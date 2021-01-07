@@ -20,6 +20,7 @@ public class challengeBase {
         System.setProperty("webdriver.chrome.driver", "./bin/chromedriver.exe");
         driver =  new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
+        driver.manage().window().maximize();
     }
 
     @AfterClass
