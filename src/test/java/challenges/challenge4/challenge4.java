@@ -1,12 +1,8 @@
 package challenges.challenge4;
 
-import challenges.challengeBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class challenge4 {
     public ArrayList<Integer> fibonacci(int order) {

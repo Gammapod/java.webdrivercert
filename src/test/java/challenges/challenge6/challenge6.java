@@ -3,15 +3,11 @@ package challenges.challenge6;
 import challenges.challengeBase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+
 import org.apache.commons.io.FileUtils;
 
 public class challenge6 extends challengeBase {
