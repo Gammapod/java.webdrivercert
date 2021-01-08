@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class challenge5 extends challengeBase {
     @Test()
-    public void porscheModels() {
+    public void countPorscheModelsAndDamages() {
         driver.get("https://www.copart.com");
         WebElement searchText = driver.findElement(By.id("input-search"));
         WebElement searchButton = driver.findElement(By.xpath("//button[@data-uname='homepageHeadersearchsubmit']"));

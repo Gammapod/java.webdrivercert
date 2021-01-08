@@ -16,7 +16,7 @@ import org.apache.commons.io.FileUtils;
 
 public class challenge6 extends challengeBase {
     @Test()
-    public void porscheModels() throws IOException {
+    public void findNissanSkyline() throws IOException {
         driver.get("https://www.copart.com");
         WebElement searchText = driver.findElement(By.id("input-search"));
         WebElement searchButton = driver.findElement(By.xpath("//button[@data-uname='homepageHeadersearchsubmit']"));

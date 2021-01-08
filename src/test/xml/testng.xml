@@ -36,29 +36,4 @@
             <class name="challenges.challenge7.challenge7"/>
         </classes>
     </test>
-    <test name="challenge8">
-        <classes>
-            <class name="challenges.challenge8.challenge8"/>
-        </classes>
-    </test>
-    <test name="challenge9">
-        <classes>
-            <class name="challenges.challenge9.challenge9"/>
-        </classes>
-    </test>
-    <test name="challenge10">
-        <classes>
-            <class name="challenges.challenge10.challenge10"/>
-        </classes>
-    </test>
-    <test name="challenge11">
-        <classes>
-            <class name="challenges.challenge11.challenge11"/>
-        </classes>
-    </test>
-    <test name="challenge12">
-        <classes>
-            <class name="challenges.challenge12.challenge12"/>
-        </classes>
-    </test>
 </suite>
