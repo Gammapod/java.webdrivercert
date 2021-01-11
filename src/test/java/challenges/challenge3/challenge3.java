@@ -9,7 +9,7 @@ import java.util.List;
 
 public class challenge3 extends challengeBase {
     @Test()
-    public void porscheIsAnExoticCar() {
+    public void popularMakesHaveLinks() {
         driver.get("https://www.copart.com");
 //            todo: make sure this is the correct section for this challenge
         List<WebElement> makes = driver.findElements(By.xpath("//div[@id='tabMakes']//a"));
