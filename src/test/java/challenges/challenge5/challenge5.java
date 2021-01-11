@@ -23,7 +23,7 @@ public class challenge5 extends challengeBase {
         searchButton.click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='serverSideDataTable']//td")));
 
-        Select tableLength = new Select (driver.findElement(By.name("serverSideDataTable_length")));
+        Select tableLength = new Select(driver.findElement(By.name("serverSideDataTable_length")));
         tableLength.selectByValue("20");
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='serverSideDataTable']//td")));
 
@@ -32,16 +32,17 @@ public class challenge5 extends challengeBase {
         countDamages();
 
     }
-    public void countModels(){
+
+    public void countModels() {
         List<WebElement> porscheModelElements = driver.findElements(By.xpath("//td/span[@data-uname='lotsearchLotmodel']"));
         List<String> porscheModels = porscheModelElements.stream()
                 .map(model -> model.getAttribute("innerText")).sorted().collect(Collectors.toList());
 
         HashMap<String, Integer> countedList = new HashMap<>();
-        for(String value : porscheModels) {
+        for (String value : porscheModels) {
             addToCountedList(countedList, value);
         }
-        for(Map.Entry<String, Integer> entry : countedList.entrySet()){
+        for (Map.Entry<String, Integer> entry : countedList.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
@@ -52,8 +53,8 @@ public class challenge5 extends challengeBase {
                 .map(model -> model.getAttribute("innerText")).sorted().collect(Collectors.toList());
 
         HashMap<String, Integer> countedList = new HashMap<>();
-        for(String value : porscheDamages) {
-            switch(value){
+        for (String value : porscheDamages) {
+            switch (value) {
                 case "REAR END":
                     addToCountedList(countedList, "REAR END");
                     break;
@@ -70,15 +71,15 @@ public class challenge5 extends challengeBase {
                     addToCountedList(countedList, "MISC");
             }
         }
-        for(Map.Entry<String, Integer> entry : countedList.entrySet()){
+        for (Map.Entry<String, Integer> entry : countedList.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 
-    public void addToCountedList(HashMap<String, Integer> countedList, String value){
-        if(countedList.containsKey(value)){
+    public void addToCountedList(HashMap<String, Integer> countedList, String value) {
+        if (countedList.containsKey(value)) {
             countedList.put(value, countedList.get(value) + 1);
-        }else{
+        } else {
             countedList.put(value, 1);
         }
     }

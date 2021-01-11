@@ -30,14 +30,15 @@ public class challenge6 extends challengeBase {
         try {
             skylineCheckbox = driver.findElement(By.xpath("//a[@data-uname='ModelFilter']/ancestor::li//ul//input"));
             skylineCheckbox.click();
-        }catch(NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             takeScreenshot(driver, "./screenshots/challenge6.png");
             throw e;
         }
 
     }
+
     public void takeScreenshot(WebDriver driver, String filepath) throws IOException {
-        TakesScreenshot screenshot = ((TakesScreenshot)driver);
+        TakesScreenshot screenshot = ((TakesScreenshot) driver);
         File image = screenshot.getScreenshotAs(OutputType.FILE);
         File destination = new File(filepath);
         FileUtils.copyFile(image, destination);

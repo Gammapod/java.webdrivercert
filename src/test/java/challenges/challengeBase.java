@@ -18,13 +18,13 @@ public class challengeBase {
     @BeforeClass
     public void startClass() {
         System.setProperty("webdriver.chrome.driver", "./bin/chromedriver.exe");
-        driver =  new ChromeDriver();
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
     }
 
     @AfterClass
-    public void stopClass(){
+    public void stopClass() {
         driver.quit();
     }
 }

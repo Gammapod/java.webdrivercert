@@ -1,12 +1,9 @@
 package challenges.challenge4;
 
 import com.google.common.base.Splitter;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -68,7 +65,7 @@ public class challenge4 {
         }
         int length = digitsList.size();
 
-        switch(length){
+        switch (length) {
             case 1:
                 return singleDigits.get(inputNumber);
             case 2:
@@ -89,13 +86,13 @@ public class challenge4 {
         }
     }
 
-    public List<Integer> splitNumber(String numberString){
+    public List<Integer> splitNumber(String numberString) {
         List<Integer> magnitudeList = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(numberString);
         stringBuilder.reverse();
 
-        for(String substring : Splitter.fixedLength(3).split(stringBuilder)){
+        for (String substring : Splitter.fixedLength(3).split(stringBuilder)) {
             StringBuilder substringBuilder = new StringBuilder();
             substringBuilder.append(substring);
             substringBuilder.reverse();
