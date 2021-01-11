@@ -1,8 +1,12 @@
 package challenges.challenge4;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,7 +14,7 @@ public class challenge4 {
 
     @Test()
     public void writeOutFibonacci() {
-        ArrayList<Integer> sequence = fibonacci.getFibonacciUpTo(10);
+        ArrayList<Integer> sequence = fibonacci.getFibonacciUpTo(47);
         for (Integer item : sequence) {
             String writtenItem = writtenNumber(item);
             System.out.println(item + " - " + writtenItem);
@@ -51,6 +55,11 @@ public class challenge4 {
         doubleDigits.put(7, " seventy");
         doubleDigits.put(8, " eighty");
         doubleDigits.put(9, " ninety");
+        magnitude.put(0, "");
+        magnitude.put(1, " thousand");
+        magnitude.put(2, " million");
+        magnitude.put(3, " billion");
+        magnitude.put(4, " trillion");
 
         String numberString = inputNumber.toString();
         List<Integer> digitsList = new ArrayList<>();
@@ -69,6 +78,29 @@ public class challenge4 {
                 return doubleDigits.get(digitsList.get(0)) + singleDigits.get(digitsList.get(1));
             }
         }
-        return "";
+        if(length == 3) {
+            return singleDigits.get(digitsList.get(0)) + " hundred" + writtenNumber(Integer.parseInt(numberString.substring(1)));
+        }
+        List<Integer> reverseMagnitudeList = splitNumber(numberString);
+        StringBuilder finalString = new StringBuilder();
+        for(int i=0;i<reverseMagnitudeList.size();i++){
+            finalString.insert(0, writtenNumber(reverseMagnitudeList.get(i)) + magnitude.get(i));
+        }
+        return finalString.toString();
+    }
+
+    public List<Integer> splitNumber(String numberString){
+        List<Integer> magnitudeList = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(numberString);
+        stringBuilder.reverse();
+
+        for(String substring : Splitter.fixedLength(3).split(stringBuilder)){
+            StringBuilder substringBuilder = new StringBuilder();
+            substringBuilder.append(substring);
+            substringBuilder.reverse();
+            magnitudeList.add(Integer.parseInt(substringBuilder.toString()));
+        }
+        return magnitudeList;
     }
 }
