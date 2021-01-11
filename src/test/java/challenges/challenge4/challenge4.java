@@ -66,27 +66,27 @@ public class challenge4 {
         for (char digit : numberString.toCharArray()) {
             digitsList.add(Integer.parseInt(String.valueOf(digit)));
         }
-        Integer length = digitsList.size();
+        int length = digitsList.size();
 
-        if (length == 1) {
-            return singleDigits.get(inputNumber);
+        switch(length){
+            case 1:
+                return singleDigits.get(inputNumber);
+            case 2:
+                if (digitsList.get(0) == 1) {
+                    return teens.get(inputNumber);
+                } else {
+                    return doubleDigits.get(digitsList.get(0)) + singleDigits.get(digitsList.get(1));
+                }
+            case 3:
+                return singleDigits.get(digitsList.get(0)) + " hundred" + writtenNumber(Integer.parseInt(numberString.substring(1)));
+            default:
+                List<Integer> reverseMagnitudeList = splitNumber(numberString);
+                StringBuilder finalString = new StringBuilder();
+                for (int i = 0; i < reverseMagnitudeList.size(); i++) {
+                    finalString.insert(0, writtenNumber(reverseMagnitudeList.get(i)) + magnitude.get(i));
+                }
+                return finalString.toString();
         }
-        if (length == 2) {
-            if (digitsList.get(0) == 1) {
-                return teens.get(inputNumber);
-            } else {
-                return doubleDigits.get(digitsList.get(0)) + singleDigits.get(digitsList.get(1));
-            }
-        }
-        if(length == 3) {
-            return singleDigits.get(digitsList.get(0)) + " hundred" + writtenNumber(Integer.parseInt(numberString.substring(1)));
-        }
-        List<Integer> reverseMagnitudeList = splitNumber(numberString);
-        StringBuilder finalString = new StringBuilder();
-        for(int i=0;i<reverseMagnitudeList.size();i++){
-            finalString.insert(0, writtenNumber(reverseMagnitudeList.get(i)) + magnitude.get(i));
-        }
-        return finalString.toString();
     }
 
     public List<Integer> splitNumber(String numberString){
