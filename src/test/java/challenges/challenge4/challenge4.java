@@ -12,7 +12,7 @@ public class challenge4 {
     HashMap<Integer, String> singleDigits = new HashMap<>();
     HashMap<Integer, String> doubleDigits = new HashMap<>();
     HashMap<Integer, String> teens = new HashMap<>();
-    HashMap<Integer, String> magnitude = new HashMap<>();
+    HashMap<Integer, String> magnitudeWord = new HashMap<>();
 
     @Test()
     public void writeOutFibonacci() {
@@ -43,12 +43,11 @@ public class challenge4 {
             case 3:
                 return singleDigits.get(digitsList.get(0)) + " hundred" + writtenNumber(Integer.parseInt(numberString.substring(1)));
             default:
-                List<Integer> reverseMagnitudeList = splitNumber(numberString);
-                StringBuilder finalString = new StringBuilder();
-                for (int i = 0; i < reverseMagnitudeList.size(); i++) {
-                    finalString.insert(0, writtenNumber(reverseMagnitudeList.get(i)) + magnitude.get(i));
-                }
-                return finalString.toString();
+                Integer leadingDigits = (length % 3 == 0 ? 3 : length % 3);
+                Integer magnitude = ((length - leadingDigits) / 3);
+                return writtenNumber(Integer.parseInt(numberString.substring(0, leadingDigits)))
+                        + magnitudeWord.get(magnitude) +
+                        writtenNumber(Integer.parseInt(numberString.substring(leadingDigits)));
         }
     }
 
@@ -98,10 +97,10 @@ public class challenge4 {
         doubleDigits.put(7, " seventy");
         doubleDigits.put(8, " eighty");
         doubleDigits.put(9, " ninety");
-        magnitude.put(0, "");
-        magnitude.put(1, " thousand");
-        magnitude.put(2, " million");
-        magnitude.put(3, " billion");
-        magnitude.put(4, " trillion");
+        magnitudeWord.put(0, "");
+        magnitudeWord.put(1, " thousand");
+        magnitudeWord.put(2, " million");
+        magnitudeWord.put(3, " billion");
+        magnitudeWord.put(4, " trillion");
     }
 }
