@@ -10,7 +10,6 @@ import org.testng.annotations.*;
 import java.util.List;
 
 public class challenge2 extends challengeBase {
-    @SuppressWarnings("SpellCheckingInspection")
     @Test()
     public void porscheIsAnExoticCar() {
         driver.get("https://www.copart.com");

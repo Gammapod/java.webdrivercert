@@ -32,9 +32,10 @@ public class challenge6 extends challengeBase {
             skylineCheckbox.click();
         } catch (NoSuchElementException e) {
             takeScreenshot(driver, "./screenshots/challenge6.png");
+            System.out.println("Unable to find Nissan Skyline, raising error. Screenshot saved at '/screenshots/challenge6.png'");
             throw e;
         }
-
+        System.out.println("Successfully found a Nissan Skyline");
     }
 
     public void takeScreenshot(WebDriver driver, String filepath) throws IOException {
