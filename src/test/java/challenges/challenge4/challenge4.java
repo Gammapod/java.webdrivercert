@@ -43,7 +43,7 @@ public class challenge4 {
             case 3:
                 return singleDigits.get(digitsList.get(0)) + " hundred" + writtenNumber(Integer.parseInt(numberString.substring(1)));
             default:
-                Integer leadingDigits = (length % 3 == 0 ? 3 : length % 3);
+                int leadingDigits = (length % 3 == 0 ? 3 : length % 3);
                 Integer magnitude = ((length - leadingDigits) / 3);
                 return writtenNumber(Integer.parseInt(numberString.substring(0, leadingDigits)))
                         + magnitudeWord.get(magnitude) +
